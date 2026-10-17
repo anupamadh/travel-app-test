@@ -7,7 +7,7 @@ from pydantic import BaseModel
 
 load_dotenv(Path(__file__).resolve().parents[2] / ".env")
 
-PROMPT = "Diagnose this creator workflow and give a short numbered plan:\n\n"
+PROMPT = "Find me family-friendly things to do in the destination and details provided.:\n\n"
 
 
 def diagnose(workflow: str) -> str:
@@ -27,6 +27,6 @@ class WorkflowIn(BaseModel):
     workflow: str
 
 
-@app.post("/api/diagnose")
+@app.post("/api/plan")
 def diagnose_route(body: WorkflowIn):
     return {"plan": diagnose(body.workflow)}
