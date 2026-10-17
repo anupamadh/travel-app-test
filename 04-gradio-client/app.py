@@ -32,7 +32,7 @@ def page(workflow: str, itinerary: str) -> str:
 </head>
 <body>
   <form method="post">
-    <label for="workflow">Workflow</label>
+    <label for="workflow">Trip Details</label>
     <textarea id="workflow" name="workflow" rows="8">{html.escape(workflow)}</textarea>
     <button type="submit">Submit</button>
     <label for="itinerary">Itinerary</label>
@@ -66,6 +66,6 @@ if __name__ == "__main__":
 
     gr.Interface(
         diagnose,
-        gr.Textbox(lines=8, label="Workflow"),
+        gr.Textbox(lines=8, label="Trip Details"),
         gr.Textbox(lines=20, label="Itinerary"),
     ).launch()
